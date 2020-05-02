@@ -55,6 +55,10 @@ namespace RetroGamingWebAPI
 
             services.AddTransient<IMailService, MailService>();
 
+            services.AddDbContext<RetroGamingContext>(options => {
+                options.UseInMemoryDatabase(databaseName: "RetroGaming");
+            });
+
             ConfigureVersioning(services);
             ConfigureSecurity(services);
         }
